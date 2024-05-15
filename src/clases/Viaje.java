@@ -97,8 +97,8 @@ public class Viaje {
 	@Override
 	public String toString() {
 		String cad ="";
-		cad += "Ciudad: " + this.lugar + "\n";
-		cad += "Fecha: " + this.fecha + "\n";
+		cad += "Ciudad: " + this.lugar + " ";
+		cad += "Fecha: " + this.fecha + " ";
 		cad += "Precio: " + this.precio + "\n";
 		return cad;
 	}
