@@ -23,9 +23,16 @@ public class Viaje {
 	 */
 	public Viaje(String lugar, String fecha, double precio) {
 		super();
-		this.lugar = lugar;
-		this.fecha = fecha;
-		this.precio = precio;
+		if (lugar != null && lugar != "") {
+			this.lugar = lugar;
+		}
+		if (comprobarFecha(fecha)) {
+			this.fecha = fecha;
+		}
+		if (precio > 0) {
+			this.precio = precio;
+		}
+
 	}
 
 	/**
@@ -67,7 +74,7 @@ public class Viaje {
 	/**
 	 * Funcion para comprobar el formato de la fecha
 	 */
-	public boolean compruebaFecha(String fecha) {
+	public boolean comprobarFecha(String fecha) {
 		boolean correcto = false;
 		String guardar[] = null;
 		guardar = fecha.split("/");
@@ -76,15 +83,15 @@ public class Viaje {
 		int anio = Integer.parseInt(guardar[2]);
 
 		if (dia > 0 && dia < 31) {
-			correcto=true;
+			correcto = true;
 		}
 
 		if (mes > 0 && mes < 13) {
-			correcto=true;
-		}	
+			correcto = true;
+		}
 
 		if (anio > 0) {
-			correcto=true;
+			correcto = true;
 		}
 
 		return correcto;
