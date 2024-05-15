@@ -63,26 +63,31 @@ public class Viaje {
 	public double getPrecio() {
 		return precio;
 	}
-	
+
 	/**
 	 * Funcion para comprobar el formato de la fecha
 	 */
-	public void compruebaFecha(String fecha) {
-		String fechaCompleta=fecha;
-		String fechaComprobada="";
-		Integer guardar[] = null;
-		Integer dia= guardar[0];
-		Integer mes= guardar[1];
-		Integer anio=guardar[2];
-		if(dia>0 && dia<31) {
-			fechaComprobada+=dia+"/";
-		}else if(mes>0 && mes<13){
-			fechaComprobada+=mes+"/";
-		}else if(anio>0) {
-			fechaComprobada+=anio;
+	public boolean compruebaFecha(String fecha) {
+		boolean correcto = false;
+		String guardar[] = null;
+		guardar = fecha.split("/");
+		int dia = Integer.parseInt(guardar[0]);
+		int mes = Integer.parseInt(guardar[1]);
+		int anio = Integer.parseInt(guardar[2]);
+
+		if (dia > 0 && dia < 31) {
+			correcto=true;
 		}
-		
-		
+
+		if (mes > 0 && mes < 13) {
+			correcto=true;
+		}	
+
+		if (anio > 0) {
+			correcto=true;
+		}
+
+		return correcto;
 	}
 
 	/**
@@ -93,14 +98,14 @@ public class Viaje {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	
+
 	@Override
 	public String toString() {
-		String cad ="";
+		String cad = "";
 		cad += "Ciudad: " + this.lugar + " ";
 		cad += "Fecha: " + this.fecha + " ";
 		cad += "Precio: " + this.precio + "\n";
 		return cad;
 	}
-	
+
 }
