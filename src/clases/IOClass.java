@@ -24,4 +24,19 @@ public class IOClass {
 			return ret;
 	}
 	
+	static public void escribir(Viaje viaje) {
+		try {
+			String[] valores = new String[3];
+			valores[0] = viaje.getLugar();
+			valores[1] = viaje.getFecha();
+			valores[2] = String.valueOf(viaje.getPrecio());
+			writer.newLine();
+			writer.write(valores[0] + "::" + valores[1]+ "::" + valores[2]);
+			writer.newLine();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

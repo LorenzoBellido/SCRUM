@@ -20,6 +20,7 @@ public class Main {
 		double precio;
 		Viaje viaje = null;
 		Gestion g = new Gestion();
+		Scanner sc = new Scanner(System.in);
 		try {
 			IOClass.reader = new BufferedReader(new FileReader("src\\fichero\\datosTurismo.txt"));
 			String[] valores = null;
@@ -34,7 +35,6 @@ public class Main {
 				}
 			}
 			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt", true));
-			Scanner sc = new Scanner(System.in);
 			
 			int opc = 0;
 			do {
@@ -57,6 +57,7 @@ public class Main {
 					
 					if(g.anyadirViaje(viaje)) {
 						System.out.println("Se ha añadido correctamente");
+						IOClass.escribir(viaje);
 					}else {
 						System.out.println("Error al añadir");
 					}
@@ -67,6 +68,13 @@ public class Main {
 			System.out.println("Saliendo.....");
 		} catch (IOException e) {
 			e.getMessage();
+		}finally {
+			try {
+				IOClass.writer.flush();
+				IOClass.writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
