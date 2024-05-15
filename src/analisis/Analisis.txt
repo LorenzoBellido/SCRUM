@@ -1,0 +1,34 @@
+Clase Viaje:
+
+- lugar: string
+- fecha: string
+- precio: double
+
++ Getter y setters:
+-------------------------
++ getLugar():string
+	+ getFecha():string
+	+ getPrecio():double
+	+ setFecha():string (Acotacion: asegurarse de que sigue el formato DD/MM/AAAA.)
+	+ setPrecio():double
+	+comprobarFecha(String Fecha):boolean 
+	
+
+
+Clase Gestion:
+
+- viajes: HashSet <String>
+
++ Metodos:
+—---------------------------
+	+ anyadirViaje(Viaje)
+	+ borrarViaje(Viaje)
+	
+
+Clase IOClass:
+
+
++Metodos:
+-------------------------
+	+ lecturaFichero():
+	+ escrituraFichero():
