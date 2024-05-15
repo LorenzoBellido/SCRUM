@@ -63,6 +63,27 @@ public class Viaje {
 	public double getPrecio() {
 		return precio;
 	}
+	
+	/**
+	 * Funcion para comprobar el formato de la fecha
+	 */
+	public void compruebaFecha(String fecha) {
+		String fechaCompleta=fecha;
+		String fechaComprobada="";
+		Integer guardar[] = null;
+		Integer dia= guardar[0];
+		Integer mes= guardar[1];
+		Integer anio=guardar[2];
+		if(dia>0 && dia<31) {
+			fechaComprobada+=dia+"/";
+		}else if(mes>0 && mes<13){
+			fechaComprobada+=mes+"/";
+		}else if(anio>0) {
+			fechaComprobada+=anio;
+		}
+		
+		
+	}
 
 	/**
 	 * Metodo set para modificar el atributo precio del viaje
