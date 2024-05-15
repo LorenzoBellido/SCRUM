@@ -28,31 +28,28 @@ public class Main {
 					System.out.println("Ciudad: " + ciudad + " Fecha" + fecha + " Precio: " + precio);
 				}
 			}
-//			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt"));
-//			Scanner sc = new Scanner(System.in);
-//			
-//			int opc = 0;
-//			String ciudad ="";
-//			String fecha ="";
-//			double precio;
-//			do {
-//				menu();
-//				opc = sc.nextInt();
-//				sc.nextLine();
-//				
-//				switch(opc) {
-//				case 1:
-//					System.out.println("Nombre de la ciudad");
-//					ciudad = sc.nextLine();
-//					System.out.println("Fecha del viaje");
-//					/*
-//					 * 
-//					 */
-//					break;
-//				}
-//			}while(opc != 3);
+			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt"));
+			Scanner sc = new Scanner(System.in);
+			
+			int opc = 0;
+			do {
+				menu();
+				opc = sc.nextInt();
+				sc.nextLine();
+				
+				switch(opc) {
+				case 1:
+					System.out.println("Nombre de la ciudad");
+					ciudad = sc.nextLine();
+					System.out.println("Fecha del viaje");
+					/*
+					 * 
+					 */
+					break;
+				}
+			}while(opc != 3);
 		} catch (IOException e) {
-//			e.getMessage();
+			e.getMessage();
 		}
 	}
 	
