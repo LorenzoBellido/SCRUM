@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class Gestion {
 
-	private HashSet<Viaje> viajes = new HashSet<Viaje>();
+	static public HashSet<Viaje> viajes = new HashSet<Viaje>();
 
 	public Gestion() {
 	}
@@ -28,6 +28,8 @@ public class Gestion {
 		return borrado;
 	}
 	
-	
+	public static void listado() {
+		System.out.println(viajes);
+	}
 	
 }

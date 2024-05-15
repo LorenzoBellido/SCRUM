@@ -72,6 +72,14 @@ public class Viaje {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
+	
+	@Override
+	public String toString() {
+		String cad ="";
+		cad += "Ciudad: " + this.lugar + "\n";
+		cad += "Fecha: " + this.fecha + "\n";
+		cad += "Precio: " + this.precio + "\n";
+		return cad;
+	}
 	
 }

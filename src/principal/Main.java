@@ -7,7 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import clases.Gestion;
 import clases.IOClass;
+import clases.Viaje;
 
 public class Main {
 
@@ -16,6 +18,8 @@ public class Main {
 		String ciudad ="";
 		String fecha ="";
 		double precio;
+		Viaje viaje = null;
+		Gestion g = new Gestion();
 		try {
 			IOClass.reader = new BufferedReader(new FileReader("src\\fichero\\datosTurismo.txt"));
 			String[] valores = null;
@@ -25,10 +29,11 @@ public class Main {
 					ciudad = valores[0];
 					fecha = valores[1];
 					precio = Double.parseDouble(valores[2]);
-					System.out.println("Ciudad: " + ciudad + " Fecha" + fecha + " Precio: " + precio);
+					viaje = new Viaje(ciudad, fecha, precio);
+					g.anyadirViaje(viaje);
 				}
 			}
-			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt"));
+			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt", true));
 			Scanner sc = new Scanner(System.in);
 			
 			int opc = 0;
@@ -39,9 +44,22 @@ public class Main {
 				
 				switch(opc) {
 				case 1:
+					g.listado();
+					break;
+				case 2:
 					System.out.println("Nombre de la ciudad");
 					ciudad = sc.nextLine();
 					System.out.println("Fecha del viaje");
+					fecha = sc.next();
+					System.out.println("Precio del viaje");
+					precio = sc.nextDouble();
+					viaje = new Viaje(ciudad, fecha, precio);
+					
+					if(g.anyadirViaje(viaje)) {
+						System.out.println("Se ha añadido correctamente");
+					}else {
+						System.out.println("Error al añadir");
+					}
 					break;
 				}
 			}while(opc != 3);
@@ -51,8 +69,8 @@ public class Main {
 	}
 	
 	private static void menu() {
-		System.out.println("1. Insertar nuevo viaje");
-		System.out.println("2. Mostrar listado de viajes");
+		System.out.println("1. Mostrar listado de viajes");
+		System.out.println("2. Insertar nuevo viaje");
 		System.out.println("3. Salir");
 	}
 
