@@ -63,6 +63,8 @@ public class Main {
 					break;
 				}
 			}while(opc != 3);
+			
+			System.out.println("Saliendo.....");
 		} catch (IOException e) {
 			e.getMessage();
 		}
