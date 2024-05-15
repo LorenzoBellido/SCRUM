@@ -42,9 +42,6 @@ public class Main {
 					System.out.println("Nombre de la ciudad");
 					ciudad = sc.nextLine();
 					System.out.println("Fecha del viaje");
-					/*
-					 * 
-					 */
 					break;
 				}
 			}while(opc != 3);
