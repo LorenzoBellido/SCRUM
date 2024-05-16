@@ -68,15 +68,15 @@ public class Main {
 					ciudad = sc.nextLine();
 					if(g.buscar(ciudad)) {
 						System.out.println(g.viajesBusqueda);
-						System.out.println("Elija un viaje");
+						System.out.println("📍 Elija un viaje 📍");
 						opcion = sc.nextInt();
 						if(g.borrarViaje(opcion)) {
-							System.out.println("Viaje borrado");
+							System.out.println("❌ Viaje borrado ❌");
 						}else {
-							System.out.println("Viaje no borrado");
+							System.out.println("🚫 Viaje no borrado 🚫");
 						}
 					}else {
-						System.out.println("Viaje no encontrado");
+						System.out.println("🚫 Viaje no encontrado 🚫");
 					}
 					break;
 					
