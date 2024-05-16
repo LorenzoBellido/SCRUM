@@ -114,11 +114,17 @@ public class Viaje implements Comparable<Viaje> {
 		cad += "Precio: " + this.precio + "\n";
 		return cad;
 	}
-
+	
+	/**
+	 * Meotodo compareTo para comparar si el lugar y la fecha es la misma que la de otro objeto
+	 *@param El parametro es un objeto de tipo viaje
+	 *@return Te devuelve un int dependiendo de si coincide te mandara un 0 , 1 o -1
+	 */
 	@Override
 	public int compareTo(Viaje o) {
+		int resultado=0;
 		
-		return 0;
+		return resultado;
 	}
 	
 	
