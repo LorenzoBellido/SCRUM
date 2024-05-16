@@ -1,6 +1,6 @@
 package clases;
 
-public class Viaje {
+public class Viaje implements Comparable<Viaje> {
 	/**
 	 * Atributo para dar un lugar a la clase viaje
 	 */
@@ -115,4 +115,11 @@ public class Viaje {
 		return cad;
 	}
 
+	@Override
+	public int compareTo(Viaje o) {
+		
+		return 0;
+	}
+	
+	
 }
