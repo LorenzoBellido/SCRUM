@@ -66,6 +66,7 @@ public class Main {
 			}while(opc != 3);
 			
 			System.out.println("Saliendo.....");
+			g.buscarViaje(ciudad);
 		} catch (IOException e) {
 			e.getMessage();
 		}finally {

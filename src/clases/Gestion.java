@@ -18,18 +18,30 @@ public class Gestion {
 		return anadido;
 	}
 	
-	public boolean borrarViaje(Viaje v) {
+	public boolean borrarViaje(/*Viaje v*/) {
 		boolean borrado = false;
-		if(viajes.contains(v)) {
-			viajes.remove(v);
-			
-			borrado = true;
-		}
+		
+		
+		
+//		if(viajes.contains(v)) {
+//			viajes.remove(v);
+//			
+//			borrado = true;
+//		}
 		return borrado;
 	}
 	
+	public boolean buscarViaje(String lugar) {
+		boolean encontrado = false;
+		
+		return encontrado;
+	}
+	
 	public static void listado() {
-		System.out.println(viajes);
+		for(Viaje valor : viajes) {
+			System.out.println(valor);
+		}
+		
 	}
 	
 }
