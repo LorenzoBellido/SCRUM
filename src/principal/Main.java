@@ -18,6 +18,7 @@ public class Main {
 		String ciudad ="";
 		String fecha ="";
 		double precio;
+		int opcion = 0;
 		Viaje viaje = null;
 		Gestion g = new Gestion();
 		Scanner sc = new Scanner(System.in);
@@ -62,8 +63,32 @@ public class Main {
 						System.out.println("Error al añadir");
 					}
 					break;
+				case 3:
+					System.out.println("Introduzca la ciudad del viaje que desea borrar.");
+					ciudad = sc.nextLine();
+					if(g.buscar(ciudad)) {
+						System.out.println(g.viajesBusqueda);
+						System.out.println("Elija un viaje");
+						opcion = sc.nextInt();
+						if(g.borrarViaje(opcion)) {
+							System.out.println("Viaje borrado");
+						}else {
+							System.out.println("Viaje no borrado");
+						}
+					}else {
+						System.out.println("Viaje no encontrado");
+					}
+					break;
+					
+				case 4: 
+					
+					break;
+					
+				default:
+						System.out.println("Opción no válida.");
+					break;
 				}
-			}while(opc != 3);
+			}while(opc != 5);
 			
 			System.out.println("Saliendo.....");
 		} catch (IOException e) {
