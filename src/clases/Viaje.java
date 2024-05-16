@@ -59,7 +59,9 @@ public class Viaje {
 	 * @param fecha Parametro que actualizara la fecha
 	 */
 	public void setFecha(String fecha) {
-		this.fecha = fecha;
+		if (comprobarFecha(fecha)) {
+			this.fecha = fecha;
+		}
 	}
 
 	/**
@@ -71,6 +73,17 @@ public class Viaje {
 		return precio;
 	}
 
+	/**
+	 * Metodo set para modificar el atributo precio del viaje
+	 * 
+	 * @param precio Parametro para actualizar el valor del precio
+	 */
+	public void setPrecio(double precio) {
+		if (precio > 0) {
+			this.precio = precio;
+		}
+	}
+	
 	/**
 	 * Funcion para comprobar el formato de la fecha
 	 */
@@ -97,14 +110,7 @@ public class Viaje {
 		return correcto;
 	}
 
-	/**
-	 * Metodo set para modificar el atributo precio del viaje
-	 * 
-	 * @param precio Parametro para actualizar el valor del precio
-	 */
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
+
 
 	@Override
 	public String toString() {
