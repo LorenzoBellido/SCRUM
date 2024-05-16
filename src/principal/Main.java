@@ -105,7 +105,7 @@ public class Main {
 	
 	private static void menu() {
 	    System.out.println("╔════════════════════════════════════════════════════════╗");
-	    System.out.println("🛬                  🌎Menú de Viajes🌏                   🛬");
+	    System.out.println("🛬                 🌎 Menú de Viajes 🌏                  🛬");
 	    System.out.println("╟────────────────────────────────────────────────────────╢");
 	    System.out.println("🛬 1. Mostrar listado de viajes📍                        🛬");
 	    System.out.println("║  2. Insertar nuevo viaje📍                             ║");
