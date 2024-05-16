@@ -79,9 +79,16 @@ public class Main {
 	}
 	
 	private static void menu() {
-		System.out.println("1. Mostrar listado de viajes");
-		System.out.println("2. Insertar nuevo viaje");
-		System.out.println("3. Salir");
+	    System.out.println("╔════════════════════════════════════════════════════════╗");
+	    System.out.println("🛬                  🌎Menú de Viajes🌏                   🛬");
+	    System.out.println("╟────────────────────────────────────────────────────────╢");
+	    System.out.println("🛬 1. Mostrar listado de viajes                          🛬");
+	    System.out.println("║  2. Insertar nuevo viaje                               ║");
+	    System.out.println("🛬 3. Eliminar nuevo viaje                               🛬");
+	    System.out.println("║  4. Modificar nuevo viaje                              ║");
+	    System.out.println("🛬 5. Salir                                              🛬");
+	    System.out.println("╚════════════════════════════════════════════════════════╝");
 	}
+
 
 }
