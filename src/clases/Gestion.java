@@ -34,6 +34,8 @@ public class Gestion {
 		return borrado;
 	}
 	
+	
+	
 	public static void listado() {
 		System.out.println(viajes);
 	}
