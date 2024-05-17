@@ -92,6 +92,14 @@ public class Main {
 					break;
 					
 				case 5:
+					if(g.guardarCambios()) {
+						System.out.println("💾 Cambios guardados 💾");
+					}else {
+						System.out.println("❌ No se han guardado los cambios ❌");
+					}
+					break;
+					
+				case 6:
 					System.out.println("Saliendo.....");
 					break;
 					
@@ -99,18 +107,11 @@ public class Main {
 						System.out.println("🚫 Opción no válida. 🚫");
 					break;
 				}
-			}while(opc != 5);
+			}while(opc != 6);
 			
 			
 		} catch (IOException e) {
 			e.getMessage();
-		}finally {
-			try {
-				IOClass.writer.flush();
-				IOClass.writer.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 	
