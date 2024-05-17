@@ -109,8 +109,21 @@ public class Viaje {
 
 		return correcto;
 	}
-
-
+	/**
+	 * Comprueba si dos viajes son iguales que lo son cuando el lugar y la fecha
+	 * coinciden
+	 * 
+	 * @return Boolean con un true cuando son inguales y un false cuando son difrentes
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		boolean igual = false;
+		Viaje viaje = (Viaje) obj;
+		if (viaje.lugar.equals(this.lugar) && viaje.fecha.equals(this.fecha)) {
+			igual = true;
+		}
+		return igual;
+	}
 
 	@Override
 	public String toString() {
