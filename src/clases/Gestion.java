@@ -1,13 +1,18 @@
 package clases;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Gestion {
 
 	static public HashSet<Viaje> viajes = new HashSet<Viaje>();
+	
+	static public ArrayList<Viaje> viajesBusqueda= new ArrayList<Viaje>();
 
 	public Gestion() {
 	}
+	
+	
 
 	public boolean anyadirViaje(Viaje v) {
 		boolean anadido = false;
@@ -17,17 +22,15 @@ public class Gestion {
 		}
 		return anadido;
 	}
-	
-	public boolean borrarViaje(/*Viaje v*/) {
+	public boolean borrarViaje(int opc) {
 		boolean borrado = false;
-		
-		
-		
-//		if(viajes.contains(v)) {
-//			viajes.remove(v);
-//			
-//			borrado = true;
-//		}
+
+		Viaje v = null;
+		if(opc >= 0) {
+			v = viajesBusqueda.get(opc);
+			
+			borrado = viajes.remove(v);
+			}
 		return borrado;
 	}
 	
@@ -44,4 +47,15 @@ public class Gestion {
 		
 	}
 	
+	public static boolean buscar(String lugar) {
+		boolean encontrado = false;
+		int cont = 0;
+		for(Viaje v : viajes) {
+			if(lugar.equalsIgnoreCase(v.getLugar())) {
+				encontrado = true;
+				viajesBusqueda.add(v);
+			}
+		}
+		return encontrado;
+	}
 }

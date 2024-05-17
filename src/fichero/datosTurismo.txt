@@ -38,5 +38,5 @@ Montreal::25/06/2024::950
 Budapest::05/10/2024::900
 Marrakech::20/09/2024::1200
 Santorini::12/06/2024::1250
-Marruecos::12/12/2024::50.0
-La Campana::22/12/2024::12.0
+La Campana::12/06/2024::1250
+La Campana::12/01/2024::120.0
