@@ -34,6 +34,24 @@ public class Viaje {
 		}
 
 	}
+	
+	/**
+	 * Constructor para la clase Viaje para utilizar con el Equals
+	 * 
+	 * @param lugar Parametro para dar un lugar al viaje
+	 * @param fecha Parametro para dar una fecha al viaje
+	 */
+	public Viaje(String lugar, String fecha) {
+		super();
+		if (lugar != null && lugar != "") {
+			this.lugar = lugar;
+		}
+		if (comprobarFecha(fecha)) {
+			this.fecha = fecha;
+		}
+	}
+
+
 
 	/**
 	 * Metodo get para obtener el lugar del viaje

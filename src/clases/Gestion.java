@@ -5,9 +5,9 @@ import java.util.HashSet;
 
 public class Gestion {
 
-	static public HashSet<Viaje> viajes = new HashSet<Viaje>();
+	public static HashSet<Viaje> viajes = new HashSet<Viaje>();
 	
-	static public ArrayList<Viaje> viajesBusqueda= new ArrayList<Viaje>();
+    public static ArrayList<Viaje> viajesBusqueda= new ArrayList<Viaje>();
 
 	public Gestion() {
 	}
@@ -33,8 +33,52 @@ public class Gestion {
 			}
 		return borrado;
 	}
-	
-	
+	/**
+	 * Funcion para moodificar el parametro del Precio de un lugar
+	 * @param lugar Parametro para dar un lugar al viaje
+	 * @param fecha Parametro para dar una fecha al viaje
+	 * @param precio Parametro para dar un precio la viaje
+	 * @return
+	 */
+	public static boolean modificarPrecio(String lugar, String fecha, double precio) {
+		boolean modificado = false;
+		
+		Viaje viajenuevo = new Viaje(lugar, fecha);
+		
+		for (Viaje viaje : viajes) {
+			
+			if (viaje.equals(viajenuevo)) {
+				viaje.setPrecio(precio);
+				modificado=true;
+			}
+		}
+		
+		return modificado;
+
+	}
+	/**
+	 * Funcion para moodificar el parametro Fecha de un lugar
+	 * @param lugar Parametro para dar un lugar al viaje
+	 * @param fecha Parametro para dar una fecha al viaje
+	 * @param precio Parametro para dar un precio la viaje
+	 * @return
+	 */
+	public static boolean modificarFecha(String lugar, String fecha, double precio) {
+		boolean modificado = false;
+		
+		Viaje viajenuevo = new Viaje(lugar, fecha);
+		
+		for (Viaje viaje : viajes) {
+			
+			if (viaje.equals(viajenuevo)) {
+				viaje.setFecha(fecha);
+				modificado=true;
+			}
+		}
+		
+		return modificado;
+
+	}
 	
 	public static void listado() {
 		System.out.println(viajes);
