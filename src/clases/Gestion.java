@@ -1,5 +1,8 @@
 package clases;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -33,6 +36,7 @@ public class Gestion {
 			}
 		return borrado;
 	}
+
 	/**
 	 * Funcion para moodificar el parametro del Precio de un lugar
 	 * @param lugar Parametro para dar un lugar al viaje
@@ -79,6 +83,47 @@ public class Gestion {
 		return modificado;
 
 	}
+
+	
+	public boolean guardarCambios() {
+		BufferedWriter bw = null;
+		try {
+			bw = IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt"));
+			bw.write("");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		
+		boolean guardado = false;
+		for(Viaje v : viajes) {
+		try {
+			bw = IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt",true));
+			bw.newLine();
+			bw.write(v.getLugar());
+			bw.write("::");
+			bw.write(v.getFecha());
+			bw.write("::");
+			bw.write(String.valueOf(v.getPrecio()));
+			bw.newLine();
+			guardado = true;
+		} catch (IOException e) {
+			System.out.println("❌ Erro con el Archivo ❌");
+			}finally {
+				try {
+					bw.flush();
+					bw.close();
+				} catch (IOException e) {
+					System.out.println("❌ Error con el Archivo ❌");
+					guardado = false;
+				}
+				
+			}
+		}
+		return guardado;
+	}
+	
+
 	
 	public static void listado() {
 		System.out.println(viajes);
