@@ -1,5 +1,7 @@
 package clases;
-
+/**
+ * Clase Viaje: Es utilizada para crear obejetos de tipo viaje
+ */
 public class Viaje {
 	/**
 	 * Atributo para dar un lugar a la clase viaje
@@ -103,7 +105,9 @@ public class Viaje {
 	}
 	
 	/**
-	 * Funcion para comprobar el formato de la fecha
+	 * Funcion para comprobar el formato de la fecha 
+	 * 
+	 * @return Devuelve un boolean para saber si el formato es correcto
 	 */
 	public boolean comprobarFecha(String fecha) {
 		boolean correcto = false;
@@ -142,7 +146,12 @@ public class Viaje {
 		}
 		return igual;
 	}
-
+	/**
+	 * El metodo ToString ejecuta que cada vez que nosotros tenemos que imprimir el objeto, 
+	 * utilizara el formato definido en este metodo
+	 * 
+	 * @return Devuelve un cadena
+	 */
 	@Override
 	public String toString() {
 		String cad = "";
