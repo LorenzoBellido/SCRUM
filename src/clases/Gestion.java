@@ -1,6 +1,7 @@
 package clases;
 
 import java.io.BufferedWriter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class Gestion {
 	 */
 	public boolean borrarViaje(int opc) {
 		boolean borrado = false;
+
 		Viaje v = null;
 		if (opc >= 0) {
 			v = viajesBusqueda.get(opc);
@@ -63,6 +65,13 @@ public class Gestion {
 		}
 		return borrado;
 	}
+	
+	public boolean buscarViaje(String lugar) {
+		boolean encontrado = false;
+		
+		return encontrado;
+	}
+	
 
 	/**
 	 * Función para moodificar el parametro del Precio de un viaje
@@ -168,7 +177,10 @@ public class Gestion {
 	 * Método para mostrar el listado de viajes
 	 */
 	public static void listado() {
-		System.out.println(viajes);
+		for(Viaje valor : viajes) {
+			System.out.println(valor);
+		}
+		
 	}
 
 	/**

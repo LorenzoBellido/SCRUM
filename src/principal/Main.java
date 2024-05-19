@@ -22,7 +22,7 @@ public class Main {
 		String nFecha ="";
 		// Variable para recoger el precio del viaje
 		double precio;
-		// Variable para recoger la opcion del switch y los menus 
+		// Variable para recoger la opcion de los menus 
 		int opcion = 0;
 		// Variable para mostrar la posicion del array
 		int cont = 0;
@@ -46,18 +46,25 @@ public class Main {
 				}
 			}
 			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt", true));
-			
+			// Variable para recoger la opcion de los menus
 			int opc = 0;
+			
+	
 			do {
+				// Se imprime el metodo menu 
 				menu();
+				// Eliges la opcion y se recoge
 				opc = sc.nextInt();
 				sc.nextLine();
 				
+				// Un Switch que ejecuta el metodo que ha elegido en el menu
 				switch(opc) {
 				case 1:
+					// Lista el conjunto de viajes
 					g.listado();
 					break;
 				case 2:
+					//Recoge las variables para rellenar el constructor de Viaje
 					System.out.println("Nombre de la ciudad");
 					ciudad = sc.nextLine();
 					System.out.println("Fecha del viaje");
@@ -66,6 +73,7 @@ public class Main {
 					precio = sc.nextDouble();
 					viaje = new Viaje(ciudad, fecha, precio);
 					
+					//Condicional para comprobar si el viaje se ha aniadido correctamente
 					if(g.anyadirViaje(viaje)) {
 						System.out.println("Se ha añadido correctamente");
 						IOClass.escribir(viaje);
@@ -74,39 +82,56 @@ public class Main {
 					}
 					break;
 				case 3:
+					// Inicializamos el contador del array a 0
 					cont = 0;
+					// Le pedimos al usuario que introduzca el viaje que busca y lo recoge en ciudad
 					System.out.println("Introduzca la ciudad del viaje que desea borrar.");
 					ciudad = sc.nextLine();
+					// Condicional que comprueba si el viaje esta dentro del set
 					if(g.buscar(ciudad)) {
+						
+						//Si esta imprimira los viajes con ese nombre indicando su posicion
 						System.out.println("📍 Elija un viaje 📍");
 						for(Viaje vi : g.viajesBusqueda) {
 							System.out.println("[" + cont + "] " + vi);
 							cont++;
 						}
+						// Dependiendo de la posicion que elija se borrara una u otra
 						opcion = sc.nextInt();
+						// Condicional para ver si el viaje se ha borrado correctamente
 						if(g.borrarViaje(opcion)) {
 							System.out.println("❌ Viaje borrado ❌");
 							
 						}else {
 							System.out.println("🚫 Viaje no borrado 🚫");
 						}
+					// En este caso si no hay ningun lugar con el nombre introducido no lo encontrara	
 					}else {
 						System.out.println("🚫 Viaje no encontrado 🚫");
 					}
+					// Inicializamos la opcion a 0
 					opcion = 0;
+					// Limpiamos con clear el arralist para que se quede vacio
 					g.viajesBusqueda.clear();
 					break;
 					
 				case 4: 
+					// Se ejecuta el metodo para imprimir el menu de modificaciones y recogemos su eleccion
 					menuModificar();
 					opcion = sc.nextInt();
+					//Limpia el buffer
 					sc.nextLine();
+					// Un Switch que ejecuta el metodo que ha elegido en el menuModificaciones
 					switch(opcion) {
 					case 1:
+						// Inicializa la variable con a 0
 						cont = 0;
+						// Le pedimos al usuario que introduzca el viaje que busca y lo recoge en ciudad
 						System.out.println("Introduzca la ciudad del viaje que desea modificar.");
 						ciudad = sc.nextLine();
+						// Condicional que comprueba si el viaje esta dentro del set
 						if(g.buscar(ciudad)) {
+							//Imprimira los viajes con ese nombre indicando su posicion
 							System.out.println("📍 Elija un viaje 📍");
 							for(Viaje vi : g.viajesBusqueda) {
 								System.out.println("[" + cont + "] " + vi);
@@ -196,7 +221,9 @@ public class Main {
 	    System.out.println("║  6. Salir                                              ║");
 	    System.out.println("╚════════════════════════════════════════════════════════╝");
 	}
-
+	/**
+	 * Metodo para imprimir el menu de modificar
+	 */
 	private static void menuModificar() {
 		System.out.println("╔════════════════════════════════════════════════════════╗");
 	    System.out.println("🛬                🌎 Menú de Modificar 🌎                 🛬");
