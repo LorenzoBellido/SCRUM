@@ -30,19 +30,33 @@ public class IOClass {
 		// Se crea una variable booleana que guarda el valor que de la senyal
 		boolean ret = false;
 
-		// El codigo intenta 
+		// El programa intenta leer el documento
 		try {
+			// Si la linea que ha leido no es nulo se recoge true en la variable, si la
+			// siguiente linea no esta vacia
 			if ((linea = reader.readLine()) != null) {
+				// La variable se asigna a valor true
 				ret = true;
 			}
-		} catch (IOException e) {
+		} // En caso de fallo por una excepcion de entrada y salida se envia un mensaje de
+			// fallo
+		catch (IOException e) {
 			e.printStackTrace();
 		}
+		// Se devuelve la variable
 		return ret;
 	}
 
+	/**
+	 * Funcion que sirve para escribie toda la informacion con el formato del
+	 * archivo de texto
+	 * 
+	 * @param viaje Objeto que contiene toda la informacion del viaje
+	 */
 	static public void escribir(Viaje viaje) {
+		// El programa intenta escribir el contenido en el fichero
 		try {
+			// Se crea una tabla 
 			String[] valores = new String[3];
 			valores[0] = viaje.getLugar();
 			valores[1] = viaje.getFecha();
