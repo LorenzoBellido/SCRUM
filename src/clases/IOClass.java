@@ -56,16 +56,24 @@ public class IOClass {
 	static public void escribir(Viaje viaje) {
 		// El programa intenta escribir el contenido en el fichero
 		try {
-			// Se crea una tabla 
+			// Se crea una tabla que guarda los datos separados del viaje
 			String[] valores = new String[3];
+			// En la primera posicion se guarda el lugar
 			valores[0] = viaje.getLugar();
+			// En la segunda posicion se guarda la fecha
 			valores[1] = viaje.getFecha();
+			// En la tercera posicion se guarda el precio
 			valores[2] = String.valueOf(viaje.getPrecio());
+			// Se crea una nueva linea de texto
 			writer.newLine();
+			// Se escribe con el formato sobre esa linea
 			writer.write(valores[0] + "::" + valores[1] + "::" + valores[2]);
+			// Se vuelve a crear una nueva linea de texto
 			writer.newLine();
 
-		} catch (IOException e) {
+		} // En caso de fallo por una excepcion de entrada y salida se envia un mensaje de
+		// fallo
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
