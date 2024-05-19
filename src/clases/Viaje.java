@@ -2,7 +2,7 @@ package clases;
 /**
  * Clase Viaje: Es utilizada para crear obejetos de tipo viaje
  */
-public class Viaje {
+public class Viaje{
 	/**
 	 * Atributo para dar un lugar a la clase viaje
 	 */
