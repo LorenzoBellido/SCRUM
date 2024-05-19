@@ -14,15 +14,23 @@ import clases.Viaje;
 public class Main {
 
 	public static void main(String[] args) {
-
+		// Variable para recoger la ciudad del viaje
 		String ciudad ="";
+		// Variable para guardar la fecha del viaje
 		String fecha ="";
+		// Variable para guardar la fecha modificada
 		String nFecha ="";
+		// Variable para recoger el precio del viaje
 		double precio;
+		// Variable para recoger la opcion del switch y los menus 
 		int opcion = 0;
+		// Variable para mostrar la posicion del array
 		int cont = 0;
+		// Creaccion del objeto viaje, inicializado a null
 		Viaje viaje = null;
+		// LLamado a la clase de gestion
 		Gestion g = new Gestion();
+		// Abrimos un escaner para recoger los mensajes escritos en consola
 		Scanner sc = new Scanner(System.in);
 		try {
 			IOClass.reader = new BufferedReader(new FileReader("src\\fichero\\datosTurismo.txt"));
@@ -166,15 +174,19 @@ public class Main {
 				}
 			}while(opc != 6);
 			
+			// Cerrar escaner
+			sc.close();
 			
 		} catch (IOException e) {
 			e.getMessage();
 		}
 	}
-	
+	/**
+	 * Metodo para imprimir el menu de Viajes
+	 */
 	private static void menu() {
 	    System.out.println("╔════════════════════════════════════════════════════════╗");
-	    System.out.println("🛬                 🌎 Menú de Viajes 🌎                   🛬");
+	    System.out.println("🛬                 🌎 Menú de Viajes 🌎                  🛬");
 	    System.out.println("╟────────────────────────────────────────────────────────╢");
 	    System.out.println("🛬 1. Mostrar listado de viajes📋                        🛬");
 	    System.out.println("║  2. Insertar nuevo viaje🆕                             ║");
