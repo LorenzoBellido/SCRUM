@@ -4,6 +4,10 @@ Clase Viaje:
 - fecha: string
 - precio: double
 
+	+ Viaje(lugar,fecha,precio)
+	+ Viaje(lugar,fecha)
+	+ Viaje()
+	
 + Getter y setters:
 -------------------------
 + getLugar():string
@@ -11,24 +15,36 @@ Clase Viaje:
 	+ getPrecio():double
 	+ setFecha():string (Acotacion: asegurarse de que sigue el formato DD/MM/AAAA.)
 	+ setPrecio():double
-	+comprobarFecha(String Fecha):boolean 
-	
+	+ comprobarFecha(String Fecha):boolean 
+	+ equals(Viaje): boolean
+	+ compare(Viaje): int
+	+ toString(): String
 
 
 Clase Gestion:
 
-- viajes: HashSet <String>
+	+ viajes: HashSet <Viaje>
+	+ viajeBusqueda: ArrayList <Viaje>
+
+	+ Gestion(){
+	}
 
 + Metodos:
 —---------------------------
-	+ anyadirViaje(Viaje)
-	+ borrarViaje(Viaje)
+	+ anyadirViaje(Viaje):boolean 
+	+ borrarViaje(Viaje):boolean 
+	+ modificarPrecio(lugar, fecha, precio):boolean 
+	+ modificarFecha(lugar, fecha, nFecha):boolean 
+	+ guardarCambios():boolean 
+	+ void listado()
+	+ buscar(lugar):boolean 
 	
-
 Clase IOClass:
-
+	+ reader: BufferedReader
+	+ writer: BufferedWriter
+	+ linea: String
 
 +Metodos:
 -------------------------
-	+ lecturaFichero():
-	+ escrituraFichero():
+	+ leer():boolean 
+	+ escribir(Viaje)
