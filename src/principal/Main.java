@@ -17,6 +17,7 @@ public class Main {
 
 		String ciudad ="";
 		String fecha ="";
+		String nFecha ="";
 		double precio;
 		int opcion = 0;
 		int cont = 0;
@@ -84,11 +85,67 @@ public class Main {
 					}else {
 						System.out.println("🚫 Viaje no encontrado 🚫");
 					}
+					opcion = 0;
 					g.viajesBusqueda.clear();
 					break;
 					
 				case 4: 
-					
+					menuModificar();
+					opcion = sc.nextInt();
+					sc.nextLine();
+					switch(opcion) {
+					case 1:
+						cont = 0;
+						System.out.println("Introduzca la ciudad del viaje que desea modificar.");
+						ciudad = sc.nextLine();
+						if(g.buscar(ciudad)) {
+							System.out.println("📍 Elija un viaje 📍");
+							for(Viaje vi : g.viajesBusqueda) {
+								System.out.println("[" + cont + "] " + vi);
+								cont++;
+							}
+							System.out.println("Introduzca la fecha del viaje");
+							fecha = sc.nextLine();
+							System.out.println("Introduzca la nueva fecha del viaje");
+							nFecha = sc.nextLine();
+							if(g.modificarFecha(ciudad, fecha, nFecha)) {
+								System.out.println("Viaje modificado");
+								
+							}else {
+								System.out.println("🚫 Viaje no modificado 🚫");
+							}
+						}else {
+							System.out.println("🚫 Viaje no encontrado 🚫");
+						}
+						g.viajesBusqueda.clear();
+						break;
+						
+					case 2:
+						cont = 0;
+						System.out.println("Introduzca la ciudad del viaje que desea modificar.");
+						ciudad = sc.nextLine();
+						if(g.buscar(ciudad)) {
+							System.out.println("📍 Elija un viaje 📍");
+							for(Viaje vi : g.viajesBusqueda) {
+								System.out.println("[" + cont + "] " + vi);
+								cont++;
+							}
+							System.out.println("Introduzca la fecha del viaje");
+							fecha = sc.nextLine();
+							System.out.println("Introduzca el nuevo precio del viaje");
+							precio = sc.nextDouble();
+							if(g.modificarPrecio(ciudad, fecha, precio)) {
+								System.out.println("Viaje modificado");
+								
+							}else {
+								System.out.println("🚫 Viaje no modificado 🚫");
+							}
+						}else {
+							System.out.println("🚫 Viaje no encontrado 🚫");
+						}
+						g.viajesBusqueda.clear();
+						break;
+					}
 					break;
 					
 				case 5:
@@ -128,5 +185,15 @@ public class Main {
 	    System.out.println("╚════════════════════════════════════════════════════════╝");
 	}
 
+	private static void menuModificar() {
+		System.out.println("╔════════════════════════════════════════════════════════╗");
+	    System.out.println("🛬                🌎 Menú de Modificar 🌎                 🛬");
+	    System.out.println("╟────────────────────────────────────────────────────────╢");
+	    System.out.println("🛬 1. Modificar Fecha📋                                  🛬");
+	    System.out.println("║  2. Modificar Precio💶                                 ║");
+	    System.out.println("🛬 3. Salir                                              🛬");
+	    System.out.println("╚════════════════════════════════════════════════════════╝");
+	}
 
+	
 }
