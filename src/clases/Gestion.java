@@ -38,12 +38,30 @@ public class Gestion {
 	 */
 	public boolean anyadirViaje(Viaje v) {
 		boolean anadido = false;
-		if (v != null) {
+		if (v != null && !igual(v)) {
 			viajes.add(v);
 			anadido = true;
 		}
 		return anadido;
 	}
+	
+	/**
+	 * Método que comprueba si el lugar y la fecha son iguales a uno ya creado
+	 * 
+	 * @param v Objeto de tipo viaje
+	 * @return Devuelve un booleano, true si es igual y false si no es igual
+	 */
+	public boolean igual(Viaje v) {
+		boolean existe = false;
+		for (Viaje viaje : viajes) {
+			if (viaje.equals(v)) {
+				existe = true;
+			}
+		}
+		return existe;
+	}
+
+
 
 	/**
 	 * Método para borrar un viaje de viajes, se introduce por parámetros una opción
@@ -65,13 +83,12 @@ public class Gestion {
 		}
 		return borrado;
 	}
-	
+
 	public boolean buscarViaje(String lugar) {
 		boolean encontrado = false;
-		
+
 		return encontrado;
 	}
-	
 
 	/**
 	 * Función para moodificar el parametro del Precio de un viaje
@@ -177,10 +194,10 @@ public class Gestion {
 	 * Método para mostrar el listado de viajes
 	 */
 	public static void listado() {
-		for(Viaje valor : viajes) {
+		for (Viaje valor : viajes) {
 			System.out.println(valor);
 		}
-		
+
 	}
 
 	/**
@@ -188,8 +205,8 @@ public class Gestion {
 	 * por si hubiese más de uno para elegirlo más tarde
 	 * 
 	 * @param lugar Lugar del viaje que desea buscar
-	 * @return Devuelve un booleano, true si se ha encontrado correctamente y false si
-	 *         no se ha encontrado
+	 * @return Devuelve un booleano, true si se ha encontrado correctamente y false
+	 *         si no se ha encontrado
 	 */
 	public static boolean buscar(String lugar) {
 		boolean encontrado = false;

@@ -43,6 +43,7 @@ public class Main {
 					precio = Double.parseDouble(valores[2]);
 					viaje = new Viaje(ciudad, fecha, precio);
 					g.anyadirViaje(viaje);
+
 				}
 			}
 			IOClass.writer = new BufferedWriter(new FileWriter("src\\fichero\\datosTurismo.txt", true));
