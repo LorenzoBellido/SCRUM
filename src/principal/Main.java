@@ -14,14 +14,23 @@ import clases.Viaje;
 public class Main {
 
 	public static void main(String[] args) {
-
+		// Variable para recoger la ciudad del viaje
 		String ciudad ="";
+		// Variable para guardar la fecha del viaje
 		String fecha ="";
+		// Variable para guardar la fecha modificada
+		String nFecha ="";
+		// Variable para recoger el precio del viaje
 		double precio;
+		// Variable para recoger la opcion del switch y los menus 
 		int opcion = 0;
+		// Variable para mostrar la posicion del array
 		int cont = 0;
+		// Creaccion del objeto viaje, inicializado a null
 		Viaje viaje = null;
+		// LLamado a la clase de gestion
 		Gestion g = new Gestion();
+		// Abrimos un escaner para recoger los mensajes escritos en consola
 		Scanner sc = new Scanner(System.in);
 		try {
 			IOClass.reader = new BufferedReader(new FileReader("src\\fichero\\datosTurismo.txt"));
@@ -84,14 +93,78 @@ public class Main {
 					}else {
 						System.out.println("🚫 Viaje no encontrado 🚫");
 					}
+					opcion = 0;
 					g.viajesBusqueda.clear();
 					break;
 					
 				case 4: 
-					
+					menuModificar();
+					opcion = sc.nextInt();
+					sc.nextLine();
+					switch(opcion) {
+					case 1:
+						cont = 0;
+						System.out.println("Introduzca la ciudad del viaje que desea modificar.");
+						ciudad = sc.nextLine();
+						if(g.buscar(ciudad)) {
+							System.out.println("📍 Elija un viaje 📍");
+							for(Viaje vi : g.viajesBusqueda) {
+								System.out.println("[" + cont + "] " + vi);
+								cont++;
+							}
+							System.out.println("Introduzca la fecha del viaje");
+							fecha = sc.nextLine();
+							System.out.println("Introduzca la nueva fecha del viaje");
+							nFecha = sc.nextLine();
+							if(g.modificarFecha(ciudad, fecha, nFecha)) {
+								System.out.println("Viaje modificado");
+								
+							}else {
+								System.out.println("🚫 Viaje no modificado 🚫");
+							}
+						}else {
+							System.out.println("🚫 Viaje no encontrado 🚫");
+						}
+						g.viajesBusqueda.clear();
+						break;
+						
+					case 2:
+						cont = 0;
+						System.out.println("Introduzca la ciudad del viaje que desea modificar.");
+						ciudad = sc.nextLine();
+						if(g.buscar(ciudad)) {
+							System.out.println("📍 Elija un viaje 📍");
+							for(Viaje vi : g.viajesBusqueda) {
+								System.out.println("[" + cont + "] " + vi);
+								cont++;
+							}
+							System.out.println("Introduzca la fecha del viaje");
+							fecha = sc.nextLine();
+							System.out.println("Introduzca el nuevo precio del viaje");
+							precio = sc.nextDouble();
+							if(g.modificarPrecio(ciudad, fecha, precio)) {
+								System.out.println("Viaje modificado");
+								
+							}else {
+								System.out.println("🚫 Viaje no modificado 🚫");
+							}
+						}else {
+							System.out.println("🚫 Viaje no encontrado 🚫");
+						}
+						g.viajesBusqueda.clear();
+						break;
+					}
 					break;
 					
 				case 5:
+					if(g.guardarCambios()) {
+						System.out.println("💾 Cambios guardados 💾");
+					}else {
+						System.out.println("❌ No se han guardado los cambios ❌");
+					}
+					break;
+					
+				case 6:
 					System.out.println("Saliendo.....");
 					break;
 					
@@ -103,21 +176,21 @@ public class Main {
 			System.out.println("Saliendo.....");
 			g.buscarViaje(ciudad);
 
+			}while(opc != 6);
+			
+			// Cerrar escaner
+			sc.close();
+			
 		} catch (IOException e) {
 			e.getMessage();
-		}finally {
-			try {
-				IOClass.writer.flush();
-				IOClass.writer.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
-	
+	/**
+	 * Metodo para imprimir el menu de Viajes
+	 */
 	private static void menu() {
 	    System.out.println("╔════════════════════════════════════════════════════════╗");
-	    System.out.println("🛬                 🌎 Menú de Viajes 🌎                   🛬");
+	    System.out.println("🛬                 🌎 Menú de Viajes 🌎                  🛬");
 	    System.out.println("╟────────────────────────────────────────────────────────╢");
 	    System.out.println("🛬 1. Mostrar listado de viajes📋                        🛬");
 	    System.out.println("║  2. Insertar nuevo viaje🆕                             ║");
@@ -128,5 +201,15 @@ public class Main {
 	    System.out.println("╚════════════════════════════════════════════════════════╝");
 	}
 
+	private static void menuModificar() {
+		System.out.println("╔════════════════════════════════════════════════════════╗");
+	    System.out.println("🛬                🌎 Menú de Modificar 🌎                 🛬");
+	    System.out.println("╟────────────────────────────────────────────────────────╢");
+	    System.out.println("🛬 1. Modificar Fecha📋                                  🛬");
+	    System.out.println("║  2. Modificar Precio💶                                 ║");
+	    System.out.println("🛬 3. Salir                                              🛬");
+	    System.out.println("╚════════════════════════════════════════════════════════╝");
+	}
 
+	
 }

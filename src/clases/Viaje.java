@@ -1,5 +1,7 @@
 package clases;
-
+/**
+ * Clase Viaje: Es utilizada para crear obejetos de tipo viaje
+ */
 public class Viaje {
 	/**
 	 * Atributo para dar un lugar a la clase viaje
@@ -34,6 +36,27 @@ public class Viaje {
 		}
 
 	}
+	
+	/**
+	 * Constructor para la clase Viaje para utilizar con el Equals
+	 * 
+	 * @param lugar Parametro para dar un lugar al viaje
+	 * @param fecha Parametro para dar una fecha al viaje
+	 */
+	public Viaje(String lugar, String fecha) {
+		super();
+		if (lugar != null && lugar != "") {
+			this.lugar = lugar;
+		}
+		if (comprobarFecha(fecha)) {
+			this.fecha = fecha;
+		}
+	}
+
+	public Viaje() {
+		
+	}
+
 
 	/**
 	 * Metodo get para obtener el lugar del viaje
@@ -85,7 +108,9 @@ public class Viaje {
 	}
 	
 	/**
-	 * Funcion para comprobar el formato de la fecha
+	 * Funcion para comprobar el formato de la fecha 
+	 * 
+	 * @return Devuelve un boolean para saber si el formato es correcto
 	 */
 	public boolean comprobarFecha(String fecha) {
 		boolean correcto = false;
@@ -109,9 +134,27 @@ public class Viaje {
 
 		return correcto;
 	}
-
-
-
+	/**
+	 * Comprueba si dos viajes son iguales que lo son cuando el lugar y la fecha
+	 * coinciden
+	 * 
+	 * @return Boolean con un true cuando son inguales y un false cuando son difrentes
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		boolean igual = false;
+		Viaje viaje = (Viaje) obj;
+		if (viaje.lugar.equals(this.lugar) && viaje.fecha.equals(this.fecha)) {
+			igual = true;
+		}
+		return igual;
+	}
+	/**
+	 * El metodo ToString ejecuta que cada vez que nosotros tenemos que imprimir el objeto, 
+	 * utilizara el formato definido en este metodo
+	 * 
+	 * @return Devuelve un cadena
+	 */
 	@Override
 	public String toString() {
 		String cad = "";
